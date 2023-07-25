@@ -1,176 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Code Quest</title>
-  </head>
-  <body>
-    <header>
-        <h2 class="logo">Quizify</h2>
-        <nav class="navigation">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact Us</a>
-            <button type="button" class="btnLogin-popup">Login</button>
-        </nav>
-    </header>
-    <div class="wrapper">
-        <span class="icon-close"><i class="fa fa-close" style="font-size:24px"></i></span>
-        <div class="form-box login">
-            <h2>Login</h2>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon"><i class="fa fa-envelope" style="font-size:24px"></i></span>
-                    <input type="email"required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><i class="fa fa-lock" style="font-size:24px"></i></span>
-                    <input type="password"required>
-                    <label>Password</label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">Remember Me</label>
-                    <a href="#">Forgot Password</a>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <div class="login-register">
-                    <p>Don't have an account ?<a href="#" class="register-link" >Register</a></p>
-                </div>
-            </form>
-        </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spotify - Your favourite music is here</title>
+        <link rel="stylesheet" href="style.css">
+        </head>
+<body>
+    <nav>
+        <ul>
+            <li class="brand"><img src="logo 2.jpg" alt="Spotify">MeloVerse</li>
+            <li>Home</li>
+            <li>About</li>
+            <li>Premium</li>
+            <button type="button" class="Login">Login</button>
+        </ul>
+    </nav>
 
-        <div class="form-box register">
-            <h2>Register</h2>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon"><i class="fa fa-user" style="font-size:24px"></i></span>
-                    <input type="text"required>
-                    <label>Username</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><i class="fa fa-envelope" style="font-size:24px"></i></span>
-                    <input type="email"required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><i class="fa fa-lock" style="font-size:24px"></i></span>
-                    <input type="password"required>
-                    <label>Password</label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">I agree to terms & conditions</label>
-                </div>
-                <button type="submit" class="btn">Register</button>
-                <div class="login-register">
-                    <p>Already have an account ?<a href="#"class="login-link">Login</a></p>
-                </div>
-            </form>
-        </div>
-    </div>
     <div class="container">
-      <div class="start-screen">
-        <h1 class="heading">Quiz.Learn.Excel.</h1>
-        <div class="settings">
-          <label for="num-questions">Number of Questions:</label>
-          <select id="num-questions">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="20">30</option>
-            <option value="20">40</option>
-            <option value="20">50</option>
-          </select>
-          <label for="category">Select Category:</label>
-          <select id="category">
-            <option value="">any category</option>
-            <option value="9">general knowledge</option>
-            <option value="10">books</option>
-            <option value="11">films</option>
-            <option value="12">music</option>
-            <option value="14">television</option>
-            <option value="15">video games</option>
-            <option value="16">board games</option>
-            <option value="17">science and nature</option>
-            <option value="18">computers</option>
-            <option value="19">mathematics</option>
-            <option value="20">mythology</option>
-            <option value="21">sports</option>
-            <option value="22">geography</option>
-            <option value="23">history</option>
-            <option value="24">politics</option>
-            <option value="25">art</option>
-            <option value="28">vehicles</option>
-          </select>
-          <label for="difficulty">Select difficulty:</label>
-          <select id="difficulty">
-            <option value="">any difficulty</option>
-            <option value="easy">easy</option>
-            <option value="medium">medium</option>
-            <option value="hard">hard</option>
-          </select>
-          <label for="time">Select time per question:</label>
-          <select id="time">
-            <option value="10">10 seconds</option>
-            <option value="15">15 seconds</option>
-            <option value="20">20 seconds</option>
-            <option value="25">25 seconds</option>
-            <option value="30">30 seconds</option>
-            <option value="60">60 seconds</option>
-          </select>
+        <div class="songList">
+            <h1>Best of 2023</h1>
+            <div class="songItemContainer">
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">03:36 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">03:32 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">03:20 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">03:50 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">04:16 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">02:44 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">02:58 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">04:19 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">03:32 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="songItem">
+                    <img alt="1">
+                    <span class="songName">Let me Love You</span>
+                    <span class="songlistplay"><span class="timestamp">03:03 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+            </div>
         </div>
-        <button class="btn start">Start Quiz</button>
-      </div>
-      <div class="quiz hide">
-        <div class="timer">
-          <div class="progress">
-            <div class="progress-bar"></div>
-            <span class="progress-text"></span>
-          </div>
-        </div>
-        <div class="question-wrapper">
-          <div class="number">
-            Question <span class="current">1</span>
-            <span class="total">/10</span>
-          </div>
-          <div class="question">This is a question This is a question?</div>
-        </div>
-        <div class="answer-wrapper">
-          <div class="answer selected">
-            <span class="text">answer</span>
-            <span class="checkbox">
-              <i class="fas fa-check"></i>
-            </span>
-          </div>
-        </div>
-        <button class="btn submit" disabled>Submit</button>
-        <button class="btn next">Next</button>
-      </div>
-      <div class="end-screen hide">
-        <h1 class="heading">Congratulations</h1>
-        <div class="score">
-          <span class="score-text">Your score:</span>
-          <div>
-            <span class="final-score">0</span>
-            <span class="total-score">/10</span>
-          </div>
-        </div>
-        <button class="btn restart">Restart Quiz</button>
-      </div>
+        
+        <div class="songBanner"></div>
     </div>
 
+    <div class="bottom">
+        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+        <div class="icons">
+            <!-- fontawesome icons -->
+            <i class="fas fa-3x fa-step-backward" id="previous"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-3x fa-step-forward" id="next"></i> 
+        </div>
+        <div class="songInfo">
+            <img src="playing.gif" width="100px" alt="" id="gif"> <span id="masterSongName">Besharam Rang</span>
+        </div>
+    </div>
     <script src="script.js"></script>
-  </body>
+    <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
+</body>
 </html>

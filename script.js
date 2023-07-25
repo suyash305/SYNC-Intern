@@ -1,233 +1,111 @@
-const wrapper = document.querySelector('.wrapper');
-const loginLink = document.querySelector('.login-link');
-const registerLink = document.querySelector('.register-link');
-const btnPopup = document.querySelector('.btnLogin-popup');
-const iconClose = document.querySelector('.icon-close');
+console.log("Welcome to Spotify");
 
-registerLink.addEventListener('click',()=>{
-    wrapper.classList.add('active');
-});
+// Initialize the Variables
+let songIndex = 0;
+let audioElement = new Audio('songs/1.mp3');
+let masterPlay = document.getElementById('masterPlay');
+let myProgressBar = document.getElementById('myProgressBar');
+let gif = document.getElementById('gif');
+let masterSongName = document.getElementById('masterSongName');
+let songItems = Array.from(document.getElementsByClassName('songItem'));
 
-loginLink.addEventListener('click',()=>{
-    wrapper.classList.remove('active');
-});
+let songs = [
+    {songName: " On my way - Alan Walker ", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
+    {songName: " Faded -Alan Walker ", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
+    {songName: " On and On - Cartoon ", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
+    {songName: "Warriyo - Mortals ", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
+    {songName: "Gangasters Paradise - Coolio ", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
+    {songName: "Munda Sona hoon main ", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
+    {songName: "Tere pyaar mein ", filePath: "songs/2.mp3", coverPath: "covers/7.jpg"},
+    {songName: "Maan Meri Jaan - King ", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
+    {songName: "Jhoome Jo Pathaan", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
+    {songName: "Pyaar hota kayi baar hai", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
+]
 
-btnPopup.addEventListener('click',()=>{
-  wrapper.classList.add('active-popup');
-});
+songItems.forEach((element, i)=>{ 
+    element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
+    element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
+})
+ 
 
-iconClose.addEventListener('click',()=>{
-  wrapper.classList.remove('active-popup');
-});
-
-const progressBar = document.querySelector(".progress-bar"),
-  progressText = document.querySelector(".progress-text");
-
-const progress = (value) => {
-  const percentage = (value / time) * 100;
-  progressBar.style.width = `${percentage}%`;
-  progressText.innerHTML = `${value}`;
-};
-
-const startBtn = document.querySelector(".start"),
-  numQuestions = document.querySelector("#num-questions"),
-  category = document.querySelector("#category"),
-  difficulty = document.querySelector("#difficulty"),
-  timePerQuestion = document.querySelector("#time"),
-  quiz = document.querySelector(".quiz"),
-  startScreen = document.querySelector(".start-screen");
-
-let questions = [],
-  time = 30,
-  score = 0,
-  currentQuestion,
-  timer;
-
-const startQuiz = () => {
-  const num = numQuestions.value,
-    cat = category.value,
-    diff = difficulty.value;
-  loadingAnimation();
-  const url = `https://opentdb.com/api.php?amount=${num}&category=${cat}&difficulty=${diff}&type=multiple`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      questions = data.results;
-      setTimeout(() => {
-        startScreen.classList.add("hide");
-        quiz.classList.remove("hide");
-        currentQuestion = 1;
-        showQuestion(questions[0]);
-      }, 1000);
-    });
-};
-
-startBtn.addEventListener("click", startQuiz);
-
-const showQuestion = (question) => {
-  const questionText = document.querySelector(".question"),
-    answersWrapper = document.querySelector(".answer-wrapper");
-  questionNumber = document.querySelector(".number");
-
-  questionText.innerHTML = question.question;
-
-  const answers = [
-    ...question.incorrect_answers,
-    question.correct_answer.toString(),
-  ];
-  answersWrapper.innerHTML = "";
-  answers.sort(() => Math.random() - 0.5);
-  answers.forEach((answer) => {
-    answersWrapper.innerHTML += `
-                  <div class="answer ">
-            <span class="text">${answer}</span>
-            <span class="checkbox">
-              <i class="fas fa-check"></i>
-            </span>
-          </div>
-        `;
-  });
-
-  questionNumber.innerHTML = ` Question <span class="current">${
-    questions.indexOf(question) + 1
-  }</span>
-            <span class="total">/${questions.length}</span>`;
-  //add event listener to each answer
-  const answersDiv = document.querySelectorAll(".answer");
-  answersDiv.forEach((answer) => {
-    answer.addEventListener("click", () => {
-      if (!answer.classList.contains("checked")) {
-        answersDiv.forEach((answer) => {
-          answer.classList.remove("selected");
-        });
-        answer.classList.add("selected");
-        submitBtn.disabled = false;
-      }
-    });
-  });
-
-  time = timePerQuestion.value;
-  startTimer(time);
-};
-
-const startTimer = (time) => {
-    timer = setInterval(() => {
-      if (time === 3) {
-        playAdudio("countdown.mp3");
-      }
-      if (time >= 0) {
-        progress(time);
-        time--;
-      } else {
-        checkAnswer();
-      }
-    }, 1000);
-  };
-
-const loadingAnimation = () => {
-  startBtn.innerHTML = "Loading";
-  const loadingInterval = setInterval(() => {
-    if (startBtn.innerHTML.length === 10) {
-      startBtn.innerHTML = "Loading";
-    } else {
-      startBtn.innerHTML += ".";
+// Handle play/pause click
+masterPlay.addEventListener('click', ()=>{
+    if(audioElement.paused || audioElement.currentTime<=0){
+        audioElement.play();
+        masterPlay.classList.remove('fa-play-circle');
+        masterPlay.classList.add('fa-pause-circle');
+        gif.style.opacity = 1;
     }
-  }, 500);
-};
-function defineProperty() {
-  var osccred = document.createElement("div");
-  
-  osccred.style.position = "absolute";
-  osccred.style.bottom = "0";
-  osccred.style.right = "0";
-  osccred.style.fontSize = "10px";
-  osccred.style.color = "#ccc";
-  osccred.style.fontFamily = "sans-serif";
-  osccred.style.padding = "5px";
-  osccred.style.background = "#fff";
-  osccred.style.borderTopLeftRadius = "5px";
-  osccred.style.borderBottomRightRadius = "5px";
-  osccred.style.boxShadow = "0 0 5px #ccc";
-  document.body.appendChild(osccred);
+    else{
+        audioElement.pause();
+        masterPlay.classList.remove('fa-pause-circle');
+        masterPlay.classList.add('fa-play-circle');
+        gif.style.opacity = 0;
+    }
+})
+// Listen to Events
+audioElement.addEventListener('timeupdate', ()=>{ 
+    // Update Seekbar
+    progress = parseInt((audioElement.currentTime/audioElement.duration)* 100); 
+    myProgressBar.value = progress;
+})
+
+myProgressBar.addEventListener('change', ()=>{
+    audioElement.currentTime = myProgressBar.value * audioElement.duration/100;
+})
+
+const makeAllPlays = ()=>{
+    Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
+        element.classList.remove('fa-pause-circle');
+        element.classList.add('fa-play-circle');
+    })
 }
 
-defineProperty();
+Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
+    element.addEventListener('click', (e)=>{ 
+        makeAllPlays();
+        songIndex = parseInt(e.target.id);
+        e.target.classList.remove('fa-play-circle');
+        e.target.classList.add('fa-pause-circle');
+        audioElement.src = `songs/${songIndex+1}.mp3`;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        gif.style.opacity = 1;
+        masterPlay.classList.remove('fa-play-circle');
+        masterPlay.classList.add('fa-pause-circle');
+    })
+})
 
-const submitBtn = document.querySelector(".submit"),
-  nextBtn = document.querySelector(".next");
-submitBtn.addEventListener("click", () => {
-  checkAnswer();
-});
-
-nextBtn.addEventListener("click", () => {
-  nextQuestion();
-  submitBtn.style.display = "block";
-  nextBtn.style.display = "none";
-});
-
-const checkAnswer = () => {
-  clearInterval(timer);
-  const selectedAnswer = document.querySelector(".answer.selected");
-  if (selectedAnswer) {
-    const answer = selectedAnswer.querySelector(".text").innerHTML;
-    console.log(currentQuestion);
-    if (answer === questions[currentQuestion - 1].correct_answer) {
-      score++;
-      selectedAnswer.classList.add("correct");
-    } else {
-      selectedAnswer.classList.add("wrong");
-      const correctAnswer = document
-        .querySelectorAll(".answer")
-        .forEach((answer) => {
-          if (
-            answer.querySelector(".text").innerHTML ===
-            questions[currentQuestion - 1].correct_answer
-          ) {
-            answer.classList.add("correct");
-          }
-        });
+document.getElementById('next').addEventListener('click', ()=>{
+    if(songIndex>=9){
+        songIndex = 0
     }
-  } else {
-    const correctAnswer = document
-      .querySelectorAll(".answer")
-      .forEach((answer) => {
-        if (
-          answer.querySelector(".text").innerHTML ===
-          questions[currentQuestion - 1].correct_answer
-        ) {
-          answer.classList.add("correct");
-        }
-      });
-  }
-  const answersDiv = document.querySelectorAll(".answer");
-  answersDiv.forEach((answer) => {
-    answer.classList.add("checked");
-  });
+    else{
+        songIndex += 1;
+    }
+    audioElement.src = `songs/${songIndex+1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
 
-  submitBtn.style.display = "none";
-  nextBtn.style.display = "block";
-};
+})
 
-const nextQuestion = () => {
-  if (currentQuestion < questions.length) {
-    currentQuestion++;
-    showQuestion(questions[currentQuestion - 1]);
-  } else {
-    showScore();
-  }
-};
+document.getElementById('previous').addEventListener('click', ()=>{
+    if(songIndex<=0){
+        songIndex = 0
+    }
+    else{
+        songIndex -= 1;
+    }
+    audioElement.src = `songs/${songIndex+1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+})
 
-const endScreen = document.querySelector(".end-screen"),
-  finalScore = document.querySelector(".final-score"),
-  totalScore = document.querySelector(".total-score");
-const showScore = () => {
-  endScreen.classList.remove("hide");
-  quiz.classList.add("hide");
-  finalScore.innerHTML = score;
-  totalScore.innerHTML = `/ ${questions.length}`;
-};
 
-const restartBtn = document.querySelector(".restart");
-restartBtn.addEventListener("click", () => {
-  window.location.reload();
-});
