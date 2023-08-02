@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/608e9d3ec2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="/images/logo.png" />
+    <link rel="stylesheet" href="./CSS/Courses.css" />
+    <title>Courses</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="home.html"><img src="./images/logo.png" class="logo" /></a> 
+      <ul>
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="./Courses.html">Courses</a></li>
+        <li><a href="./teachers.html">Instructors</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./Contact.html">Contact Us</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">
+            JOIN
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="./SignUp.html">Sign Up</a>
+            <a href="./Login.html">Login</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <section class="coursesBody">
+      <h1>~ Courses ~</h1>
+      <div class="flex">
+        <div class="flex1" onclick="gotoCourse(0)"><h4>HTML</h4></div>
+        <div class="flex2" onclick="gotoCourse(1)"><h4>CSS</h4></div>
+        <div class="flex3" onclick="gotoCourse(2)"><h4>JavaScript</h4></div>
+        <div class="flex4" onclick="gotoCourse(3)"><h4>Bootstrap</h4></div>
+        <div class="flex5" onclick="gotoCourse(4)"><h4>Node Js</h4></div>
+        <div class="flex6" onclick="gotoCourse(5)"><h4>JQuery</h4></div>
+      </div>
+    </section>
+    <section class="playlistBody">
+      <section class="playlist-details">
+        <div class="row">
+          <div class="column">
+            <div class="numBox">
+              <img src="" class="courseImg" />
+              <span>6 videos</span>
+            </div>
+          </div>
+          <div class="column">
+            <div class="person">
+              <img id="imgTeacher" />
+              <div>
+                <h3 id="teacher">john deo</h3>
+              </div>
+            </div>
+            <div class="details">
+              <h3>Complete <span class="course"></span> personial</h3>
+              <p id="discription"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="playlist-videos">
+        <h1 class="heading">~ Playlist Videos of this course ~</h1>
+
+        <div class="box-container">
+          <a class="box" onclick="gotoVideo(1)">
+            <i class="fa-solid fa-play"></i>
+            <span class="headerImg">Part 01</span>
+            <img src="" class="courseImg" />
+            <h3>Complete <span class="course"></span> personial (Part 01)</h3>
+          </a>
+
+          <a class="box" onclick="gotoVideo(2)">
+            <i class="fa-solid fa-play"></i>
+            <span class="headerImg">Part 02</span>
+            <img src="" class="courseImg" />
+            <h3>Complete <span class="course"></span> personial (Part 02)</h3>
+          </a>
+
+          <a class="box" onclick="gotoVideo(3)">
+            <i class="fa-solid fa-play"></i>
+            <span class="headerImg">Part 03</span>
+            <img src="" class="courseImg" />
+            <h3>Complete <span class="course"></span> personial (Part 03)</h3>
+          </a>
+
+          <a class="box" onclick="gotoVideo(4)">
+            <i class="fa-solid fa-play"></i>
+            <span class="headerImg">Part 04</span>
+            <img src="" class="courseImg" />
+            <h3>Complete <span class="course"></span> personial (Part 04)</h3>
+          </a>
+
+          <a class="box" onclick="gotoVideo(5)">
+            <i class="fa-solid fa-play"></i>
+            <span class="headerImg">Part 05</span>
+            <img src="" class="courseImg" />
+            <h3>Complete <span class="course"></span> personial (Part 05)</h3>
+          </a>
+
+          <a class="box" onclick="gotoVideo(6)">
+            <i class="fa-solid fa-play"></i>
+            <span class="headerImg">Part 06</span>
+            <img src="" class="courseImg" />
+            <h3>Complete <span class="course"></span> personial (Part 06)</h3>
+          </a>
+        </div>
+        <div class="ass">
+          <h1 class="heading" style="padding-top: 12px">~ Assignment ~</h1>
+          <p>After Completing this course <span id="ass"></span></p>
+          <button class="btnn">
+            <a href="./uploadAss.html">Upload Assignment</a>
+          </button>
+        </div>
+      </section>
+    </section>
+    <section class="videoBody">
+      <h1 style="margin-top: 2%">
+        ~ Complete <span class="course"></span> personial (Part
+        <span id="part"></span>) ~
+      </h1>
+      <div class="videoDiv">
+        <video src="" controls autoplay width="80%" id="video"></video>
+      </div>
+    </section>
+    <script src="./JS/data.js"></script>
+    <script src="./JS/script.js"></script>
+  </body>
+</html>

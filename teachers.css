@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+  body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+      url(../images/teacher.png);
+    background-position: center;
+    background-size: cover;
+  }
+  .navbar {
+    font-size: larger;
+    height: 30px;
+    width: 95%;
+    margin: auto;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    justify-content: space-between;
+  }
+  .logo {
+    margin-left: 2%;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+  }
+  .navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+  }
+  .navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .navbar ul li a:hover {
+    color: #009688;
+  }
+  .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0c0808;
+    min-width: 60px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    float: none;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .container {
+    margin-top: 2%;
+  }
+  .gallery,
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-box {
+    width: 100px;
+    height: 500px;
+    margin: 10px;
+    position: relative;
+    border-radius: 50px;
+    background-image: url(../images/teacher1.png);
+    background-position: center;
+    background-size: cover;
+    transition: width 0.5s;
+  }
+  .img-box:nth-child(2) {
+    background-image: url(../images/teacher2.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .img-box:nth-child(3) {
+    background-image: url(../images/teacher3.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .img-box:nth-child(4) {
+    background-image: url(../images/teacher4.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .img-box:nth-child(5) {
+    background-image: url(../images/teacher5.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .img-box:nth-child(6) {
+    background-image: url(../images/teacher6.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .img-box h3 {
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    opacity: 0;
+    transition: bottom 0.5s opacity 0.5s;
+  }
+  .img-box:hover {
+    width: 300px;
+    cursor: pointer;
+  }
+  .img-box:hover h3 {
+    opacity: 1;
+    bottom: 25px;
+  }
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 5%;
+  }

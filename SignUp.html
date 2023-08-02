@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="/images/logo.png" />
+    <link rel="stylesheet" href="./CSS/SignUp.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <img src="./images/logo.png" class="logo" />
+      <ul>
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="./Courses.html">Courses</a></li>
+        <li><a href="./teachers.html">Instructors</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./Contact.html">Contact Us</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">
+            JOIN
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="./SignUp.html">Sign Up</a>
+            <a href="./Login.html">Login</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="form">
+      <h2>Sign Up Here</h2>
+      <input type="text" id="firstName" placeholder="Enter First Name Here" />
+      <input type="text" id="LastName" placeholder="Enter Last Name Here" />
+      <input type="email" id="AddEmail" placeholder="Enter Email Here" />
+      <input type="password" id="AddPass" placeholder="Enter Password Here" />
+
+      <button class="btnn" onclick="addUser()">Sign Up</button>
+      <p class="liw">Sign Up with</p>
+
+      <div class="icons">
+        <a href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-google"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-skype"></ion-icon>
+        </a>
+      </div>
+    </div>
+    <script src="./JS/data.js"></script>
+    <script src="./JS/script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+  </body>
+</html>

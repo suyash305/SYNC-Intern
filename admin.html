@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/logo.png" />
+    <link rel="stylesheet" href="./CSS/admin.css" />
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+    <h1>~ Admin Dashboard ~</h1>
+    <div class="flex">
+      <div>
+        <p>30</p>
+        Courses
+      </div>
+      <div>
+        <p>10</p>
+        Playlists
+      </div>
+      <div>
+        <p>239</p>
+        Like
+      </div>
+      <div>
+        <p>2395</p>
+        Watches
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart">
+        <p class="title">Watches</p>
+        <div id="areaChart"></div>
+      </div>
+      <div class="chart">
+        <p class="title">Top 6 Courses</p>
+        <div id="barChart"></div>
+      </div>
+    </div>
+    <button class="btnn" onclick="showTable()">Show Uplaoded Assignment</button>
+    <table id="assTable">
+      <tr>
+        <th>Student Name</th>
+        <th>Course</th>
+        <th>Assignment</th>
+      </tr>
+    </table>
+    <script src="./JS/data.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.39.0/apexcharts.min.js"
+      integrity="sha512-jZMUAHj0E1ZO8dGoWdvwCQ/bh4sefOi6lwM5XcjnpzyTfOc409SrdZAdbvum112UT1c/SqVSPZAzksUkxVcQ8w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
